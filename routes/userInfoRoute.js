@@ -4,11 +4,11 @@ const { getAllUserInfo, addUserInfo, getOneUserInfo, updateUserInfo, deleteUserI
 const { addUserInfoValidation, getOneUserInfoValidation, updateUserInfoValidation, deleteUserInfoValidation } = require('../utils/validation/userInfoValidation')
 
 router.route('/')
-    .get(protectAuth(), allowedTo('admin', 'manager'), getAllUserInfo)
+    .get(getAllUserInfo)
     .post(protectAuth(), allowedTo('admin', 'manager'), filterObj, addUserInfoValidation, addUserInfo)
     .delete(protectAuth(), allowedTo('admin', 'manager'), deleteAllUserInfo)
 router.route('/:id')
-    .get(protectAuth(), allowedTo('admin', 'manager'), getOneUserInfoValidation, getOneUserInfo)
+    .get(getOneUserInfoValidation, getOneUserInfo)
     .put(protectAuth(), allowedTo('admin', 'manager'), filterObj, updateUserInfoValidation, updateUserInfo)
     .delete(protectAuth(), allowedTo('admin', 'manager'), deleteUserInfoValidation, deleteUserInfo)
 
