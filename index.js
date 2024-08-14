@@ -13,7 +13,6 @@ const database = require('./config/database')
 const routesMount = require('./routes')
 const ApiError = require('./utils/apiError')
 
-
 const app = express()
 
 // Env

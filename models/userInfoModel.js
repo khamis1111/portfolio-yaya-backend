@@ -55,26 +55,26 @@ const userInfoSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-const url = (doc) => {
-    if (doc.mainVideo) {
-        if (doc.mainVideo && !doc.mainVideo.startsWith(process.env.BASE_URL)) {
-            doc.mainVideo = `${process.env.BASE_URL}/mainVideo/${doc.mainVideo}`;
-        }
-    }
+// const url = (doc) => {
+//     if (doc.mainVideo) {
+//         if (doc.mainVideo && !doc.mainVideo.startsWith(process.env.BASE_URL)) {
+//             doc.mainVideo = `${process.env.BASE_URL}/mainVideo/${doc.mainVideo}`;
+//         }
+//     }
 
-    if (doc.imgProfile) {
-        if (doc.imgProfile && !doc.imgProfile.startsWith(process.env.BASE_URL)) {
-            doc.imgProfile = `${process.env.BASE_URL}/imgProfile/${doc.imgProfile}`;
-        }
-    }
-}
+//     if (doc.imgProfile) {
+//         if (doc.imgProfile && !doc.imgProfile.startsWith(process.env.BASE_URL)) {
+//             doc.imgProfile = `${process.env.BASE_URL}/imgProfile/${doc.imgProfile}`;
+//         }
+//     }
+// }
 
-userInfoSchema.post('save', (doc) => {
-    url(doc)
-})
-userInfoSchema.post('init', (doc) => {
-    url(doc)
-})
+// userInfoSchema.post('save', (doc) => {
+//     url(doc)
+// })
+// userInfoSchema.post('init', (doc) => {
+//     url(doc)
+// })
 
 const userInfoModel = mongoose.model('UserInfo', userInfoSchema)
 

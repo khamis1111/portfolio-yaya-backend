@@ -31,20 +31,20 @@ const likesSchema = new mongoose.Schema({
     identifier: String, // Can be IP address or any other unique identifier
 });
 
-const url = (doc) => {
-    if (doc.reelsVideo) {
-        if (doc.reelsVideo && !doc.reelsVideo.startsWith(process.env.BASE_URL)) {
-            doc.reelsVideo = `${process.env.BASE_URL}/reelsVideo/${doc.reelsVideo}`;
-        }
-    }
-}
+// const url = (doc) => {
+//     if (doc.reelsVideo) {
+//         if (doc.reelsVideo && !doc.reelsVideo.startsWith(process.env.BASE_URL)) {
+//             doc.reelsVideo = `${process.env.BASE_URL}/reelsVideo/${doc.reelsVideo}`;
+//         }
+//     }
+// }
 
-reelsSchema.post('save', (doc) => {
-    url(doc)
-})
-reelsSchema.post('init', (doc) => {
-    url(doc)
-})
+// reelsSchema.post('save', (doc) => {
+//     url(doc)
+// })
+// reelsSchema.post('init', (doc) => {
+//     url(doc)
+// })
 
 const reelsModel = mongoose.model('Reels', reelsSchema)
 const likesModel = mongoose.model('Likes', likesSchema)

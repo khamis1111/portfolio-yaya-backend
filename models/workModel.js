@@ -39,26 +39,26 @@ const workSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 
-const url = (doc) => {
-    if (doc.workVideo) {
-        if (doc.workVideo && !doc.workVideo.startsWith(process.env.BASE_URL)) {
-            doc.workVideo = `${process.env.BASE_URL}/workVideo/${doc.workVideo}`;
-        }
-    }
+// const url = (doc) => {
+//     if (doc.workVideo) {
+//         if (doc.workVideo && !doc.workVideo.startsWith(process.env.BASE_URL)) {
+//             doc.workVideo = `${process.env.BASE_URL}/workVideo/${doc.workVideo}`;
+//         }
+//     }
 
-    if (doc.imgCover) {
-        if (doc.imgCover && !doc.imgCover.startsWith(process.env.BASE_URL)) {
-            doc.imgCover = `${process.env.BASE_URL}/imgCover/${doc.imgCover}`;
-        }
-    }
-}
+//     if (doc.imgCover) {
+//         if (doc.imgCover && !doc.imgCover.startsWith(process.env.BASE_URL)) {
+//             doc.imgCover = `${process.env.BASE_URL}/imgCover/${doc.imgCover}`;
+//         }
+//     }
+// }
 
-workSchema.post('save', (doc) => {
-    url(doc)
-})
-workSchema.post('init', (doc) => {
-    url(doc)
-})
+// workSchema.post('save', (doc) => {
+//     url(doc)
+// })
+// workSchema.post('init', (doc) => {
+//     url(doc)
+// })
 
 const workModel = mongoose.model('Work', workSchema)
 

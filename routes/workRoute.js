@@ -5,11 +5,11 @@ const { addWorkValidation, getOneWorkValidation, updateWorkValidation, deleteWor
 
 router.route('/')
     .get(getAllWork)
-    .post(uploadFiles, filterObj, addWorkValidation, addWork)
+    .post(filterObj, addWorkValidation, addWork)
     .delete(deleteAllWork)
 router.route('/:id')
     .get(getOneWorkValidation, getOneWork)
-    .put(uploadFiles, filterObj, updateWorkValidation, updateWork)
+    .put(filterObj, updateWorkValidation, updateWork)
     .delete(deleteWorkValidation, deleteWork)
 
 module.exports = router

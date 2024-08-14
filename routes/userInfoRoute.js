@@ -5,11 +5,11 @@ const { addUserInfoValidation, getOneUserInfoValidation, updateUserInfoValidatio
 
 router.route('/')
     .get(getAllUserInfo)
-    .post(uploadMainVideo, filterObj, addUserInfoValidation, addUserInfo)
+    .post(filterObj, addUserInfoValidation, addUserInfo)
     .delete(deleteAllUserInfo)
 router.route('/:id')
     .get(getOneUserInfoValidation, getOneUserInfo)
-    .put(uploadMainVideo, filterObj, updateUserInfoValidation, updateUserInfo)
+    .put(filterObj, updateUserInfoValidation, updateUserInfo)
     .delete(deleteUserInfoValidation, deleteUserInfo)
 
 module.exports = router
