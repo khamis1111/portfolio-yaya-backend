@@ -1,6 +1,5 @@
 const slugify = require("slugify");
 const expressAsyncHandler = require("express-async-handler");
-const os = require("os");
 const { default: axios } = require("axios");
 const handlersFactory = require("./factory/handlersFactory");
 const uploadFiles = require("../utils/uploadFiles");
